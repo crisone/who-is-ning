@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WHO IS NING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFD700; /* 黄色背景 */
+            color: #333; /* 文字颜色 */
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #FFF8DC; /* 浅黄色背景 */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            /* border-radius: 5px; */
+            border-radius: 50%; /* 圆形遮罩 */
+        }
+        h1 {
+            color: #8B4513; /* 棕色 */
+        }
+        .typewriter {
+            display: inline-block;
+            overflow: hidden; /* 隐藏未显示的文字 */
+            white-space: nowrap; /* 防止换行 */
+            border-right: 3px solid; /* 模拟打字机的光标 */
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+            /* 调整动画速度和步骤以适应您的文本 */
+        }
+
+        /* 打字机键入效果 */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* 光标闪烁效果 */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> ! Ning The King ! </h1>
+        <img src="ning.jpeg" alt="宁王威武">
+        <p><span id="typewriter-text" class="typewriter"></span></p>
+    </div>
+</body>
+<script>
+    const typewriterText = document.getElementById('typewriter-text');
+    const ning_titles = [
+        "表情包艺术家",
+        "单板刻滑选手",
+        "述职会MVP",
+        "烤羊腿终结者",
+        "太江府首席吉他手"
+    ]
+    const text = ning_titles.join("|");
+    let index = 0; // 当前字母的索引
+
+    function typeWriter() {
+        if (index < text.length) {
+            const char = text.charAt(index);
+            if (char === '|') {
+                typewriterText.innerHTML += '<br>';
+            } else {
+                typewriterText.innerHTML += char;
+                // typewriterText.textContent += char;
+            }
+            index++;
+            setTimeout(typeWriter, 100); // 调整打字速度
+        }
+    }
+
+    // 开始打字效果
+    typeWriter();
+</script>
+</html>
